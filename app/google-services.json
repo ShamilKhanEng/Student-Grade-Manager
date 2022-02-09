@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "318046815273",
+    "project_id": "student-grade-manager",
+    "storage_bucket": "student-grade-manager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318046815273:android:11196f382341faa6a84838",
+        "android_client_info": {
+          "package_name": "com.example.studenthub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318046815273-0agn9kque53opvcd3r7gd0i0ni38on5u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6Sh6XJa88pLM702p0qVJbbk98Lhc762Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318046815273-0agn9kque53opvcd3r7gd0i0ni38on5u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
