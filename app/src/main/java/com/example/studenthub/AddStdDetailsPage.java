@@ -1,27 +1,40 @@
 package com.example.studenthub;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class AddStdDetailsPage extends AppCompatActivity {
 
-    private EditText uni,fac,field,year,sem,cumGPA,name,regNum;
+    private EditText year,sem,cumGPA,name,regNum;
     private Button addDetails,toDashBoardBTn;
     private String userEmail,userID;
     private ProgressBar proBarAddStd;
+
+    private AutoCompleteTextView uni,fac,field;
+    private Spinner uniSp,facSp,fieldSp;
 
     private String uniStr;
     private String facStr;
@@ -31,6 +44,11 @@ public class AddStdDetailsPage extends AppCompatActivity {
     private String cumGPAStr;
     private String nameStr;
     private String regNumStr;
+
+
+    private ArrayList<String> ExistinguniStrlist;
+    private ArrayList<String> ExistingfacStrlist;
+    private ArrayList<String> ExistingfieldStrlist;
 
 
     private DatabaseReference mdatabaseRef;
@@ -54,6 +72,11 @@ public class AddStdDetailsPage extends AppCompatActivity {
         regNum=findViewById(R.id.ETRegNum);
         toDashBoardBTn=findViewById(R.id.FromStdDetailstoStddash);
 
+        //uniSp=findViewById(R.id.AddStdUniSpinner);
+        //facSp=findViewById(R.id.AddStdfacSpinner);
+        //fieldSp=findViewById(R.id.AddStdfieldSpinner);
+
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
                 userEmail = user.getEmail();
@@ -63,6 +86,74 @@ public class AddStdDetailsPage extends AppCompatActivity {
             finish();
 
         }
+
+
+
+        //comparing the obtain details with admin details to find the admin userid
+        FirebaseDatabase.getInstance().getReference().child("Admin")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        ExistinguniStrlist=new ArrayList<>();
+                        ExistingfacStrlist=new ArrayList<>();
+                        ExistingfieldStrlist=new ArrayList<>();
+
+                        ExistinguniStrlist.add("");
+                        ExistingfacStrlist.add("");
+                        ExistingfieldStrlist.add("");
+
+
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            String uniVar = snapshot.child("University").getValue().toString();
+                            String facVar = snapshot.child("Faculty").getValue().toString();
+                            String fieldVar = snapshot.child("Field").getValue().toString();
+
+                            if(!ExistinguniStrlist.contains(uniVar)){
+                                ExistinguniStrlist.add(uniVar);
+
+                            }
+                            if(!ExistingfacStrlist.contains(facVar)){
+
+                                ExistingfacStrlist.add(facVar);
+
+                            }
+                            if(!ExistingfieldStrlist.contains(fieldVar)){
+                                ExistingfieldStrlist.add(fieldVar);
+
+                            }
+
+
+
+
+                        }
+
+                        ArrayAdapter<String> adapterUni = new ArrayAdapter<String>(AddStdDetailsPage.this, android.R.layout.simple_dropdown_item_1line,ExistinguniStrlist);
+                        uni.setAdapter(adapterUni);
+
+
+
+                        ArrayAdapter<String> adapterfac = new ArrayAdapter<String>(AddStdDetailsPage.this, android.R.layout.simple_dropdown_item_1line,ExistingfacStrlist);
+                        fac.setAdapter(adapterfac);
+
+
+
+                        ArrayAdapter<String> adapterfield = new ArrayAdapter<String>(AddStdDetailsPage.this, android.R.layout.simple_dropdown_item_1line,ExistingfieldStrlist);
+                        field.setAdapter(adapterfield);
+
+
+
+
+
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        throw databaseError.toException();
+                    }
+                });
+
+
+
 
 
 
@@ -147,6 +238,7 @@ public class AddStdDetailsPage extends AppCompatActivity {
 
                     Toast.makeText(AddStdDetailsPage.this,"Details added successfully",Toast.LENGTH_LONG).show();
 
+                    proBarAddStd.setVisibility(View.INVISIBLE);
                 }
 
 

@@ -10,13 +10,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentHub" >
         <activity
-            android:name=".CourseAddPage"
+            android:name=".StudentCourseRemovePage"
             android:exported="false" />
         <activity
-            android:name=".AdminArea"
+            android:name=".RankViewerPage"
+            android:exported="false" />
+        <activity
+            android:name=".RankViewerPAge"
+            android:exported="false" />
+        <activity
+            android:name=".RankVevierpage"
+            android:exported="false" />
+        <activity
+            android:name=".SelectorPage"
+            android:exported="false" />
+        <activity
+            android:name=".GradeCourseViewerPage"
+            android:exported="false" />
+        <activity
+            android:name=".ExpectedGradeCalPage"
+            android:exported="false" />
+        <activity
+            android:name=".MarksAddPage"
+            android:exported="false" />
+        <activity
+            android:name=".ViewStudentDetail"
             android:exported="false" />
         <activity
             android:name=".CourseViewPage"
+            android:exported="false" />
+        <activity
+            android:name=".AddCoursePage"
+            android:exported="false" />
+        <activity
+            android:name=".AdminArea"
             android:exported="false" />
         <activity
             android:name=".CourseUpdatePage"
@@ -28,9 +55,6 @@
             android:name=".AdminRegPage"
             android:exported="false" />
         <activity
-            android:name=".ViewDetailsPage"
-            android:exported="false" />
-        <activity
             android:name=".AddStdDetailsPage"
             android:exported="false" />
         <activity
@@ -40,13 +64,7 @@
             android:name=".StudentArea"
             android:exported="false" />
         <activity
-            android:name=".AnonymousArea"
-            android:exported="false" />
-        <activity
             android:name=".SignInPage"
-            android:exported="false" />
-        <activity
-            android:name=".SelectorPage"
             android:exported="false" />
         <activity
             android:name=".LoginPage"

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#20243C"
+    tools:context=".ViewStudentDetail">
+
+    <TextView
+        android:id="@+id/TVHeadingStdView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:text="Hi User, here is your Details! "
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/VStdlinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVHeadingStdView">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVStdViewName"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+
+                android:text="Name"
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TVStdViewNameValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+                android:paddingTop="3dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVStdUniversity"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="University"
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TVStdUniversityValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="3dp"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVStdFaculty"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Faculty"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVStdFacultyValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="3dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVStdField"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Field"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVStdFieldValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="3dp"
+
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVstdYear"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Year"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVstdYearValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="3dp"
+
+
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVStdSemester"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Semester"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVStdSemesterValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="3dp"
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVStdRegNum"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Registration Number"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVStdRegNumValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="3dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVStdGPA"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Cumulative GPA"
+
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TVStdGPAValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+                android:paddingTop="3dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVStdAdminStatus"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Admin Status"
+
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TVStdAdminStatusValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+                android:paddingTop="3dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVStdEmailView"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Registered Email"
+
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TVStdEmailViewValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="3dp"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/StdViewBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:backgroundTint="@color/cardview_shadow_end_color"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VStdlinearLayout" />
+
+
+    <ProgressBar
+        android:id="@+id/proStdViewPage"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="34dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VStdlinearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

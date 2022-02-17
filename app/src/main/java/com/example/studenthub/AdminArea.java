@@ -22,7 +22,7 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
         CourseDel=findViewById(R.id.AdminAreaDeleteBtn);
         CourseUpdate=findViewById(R.id.adminDashUpdateBtn);
         CourseView=findViewById(R.id.adminDashViewbtn);
-        logout=findViewById(R.id.adminDashlogoutBtn);
+        logout=findViewById(R.id.adminViewSearchBtn);
         toslector=findViewById(R.id.toStdZoneBtnfromadmin);
         CourseAdd=findViewById(R.id.admindashAddBtn);
 
@@ -62,7 +62,7 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
             finish();
 
         }
-        else if(view.getId()==R.id.adminDashlogoutBtn){
+        else if(view.getId()==R.id.adminViewSearchBtn){
 
             startActivity(new Intent(getApplicationContext(),LoginPage.class));
             Toast.makeText(AdminArea.this,"successfully logged out",Toast.LENGTH_LONG).show();
@@ -78,8 +78,10 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
 
         else if(view.getId()==R.id.admindashAddBtn){
 
-            startActivity(new Intent(getApplicationContext(),CourseAddPage.class));
-            finish();
+            startActivity(new Intent(getApplicationContext(),AddCoursePage.class));
+
+
+
 
         }
 

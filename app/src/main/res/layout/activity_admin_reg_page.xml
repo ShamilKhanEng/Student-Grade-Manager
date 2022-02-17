@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="197dp"
         android:layout_height="217dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -50,14 +50,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BtnCheckAvailability" />
 
+
+    <Button
+        android:id="@+id/BtnAdminRegBack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/rounded_corner2"
+        android:text="Back"
+        android:textColor="#BDAC78"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnMakeMeAdmin" />
+
     <ProgressBar
         android:id="@+id/progressBarAdminreg"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/BtnMakeMeAdmin"
-        tools:layout_editor_absoluteX="181dp" />
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnAdminRegBack" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

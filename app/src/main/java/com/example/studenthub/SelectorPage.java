@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class SelectorPage extends AppCompatActivity implements View.OnClickListener {
 
     private TextView dispName;
@@ -30,7 +33,8 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
     private String emailFromlog;
     private String emailFromSign;
     private String nameFromSign;
-    private String email,userID,userEmail;
+    private String userkey,userID,userEmail;
+    private int flagExist=0;
 
     private DatabaseReference dref;
 
@@ -44,7 +48,7 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
         stdAnonymous = findViewById(R.id.GradCalBTn);
         stdArea = findViewById(R.id.ViewpreBtn);
         adminArea = findViewById(R.id.AdminDetailsBtn);
-        logOutBtn = findViewById(R.id.DashLogoutBtn);
+        logOutBtn = findViewById(R.id.DashLogoutBtn1);
 
 
         //calling the methods set on setOnClickListener to trigger the Onclick method when these buttons are clicked
@@ -52,6 +56,18 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
         stdAnonymous.setOnClickListener(this);
         stdArea.setOnClickListener(this);
         adminArea.setOnClickListener(this);
+
+        //get the email of the current user and get the userID by splitting the
+        //email by @
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            userEmail = user.getEmail();
+            userID = userEmail.substring(0, userEmail.indexOf("@"));
+        } else {
+            startActivity(new Intent(getApplicationContext(), LoginPage.class));
+            finish();
+
+        }
 
 
         String dispStr=getIntent().getStringExtra("nameOfUser");
@@ -75,63 +91,95 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
 
         if (vSelector.getId() == R.id.GradCalBTn) {
 
-            Intent toAStd = new Intent(SelectorPage.this, AnonymousArea.class);
-            startActivity(toAStd);
+            Intent toEGPageFromSelector=new Intent(SelectorPage.this,ExpectedGradeCalPage.class);
+            toEGPageFromSelector.putExtra("intentFind","SelectorPage");
+            startActivity(toEGPageFromSelector);
             finish();
+
         } else if (vSelector.getId() == R.id.AdminDetailsBtn) {
 
 
 
-            //get the email of the current user and get the userID by splitting the
-            //email by @
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                userEmail = user.getEmail();
-                userID = userEmail.substring(0, userEmail.indexOf("@"));
-            } else {
-                startActivity(new Intent(getApplicationContext(), LoginPage.class));
-                finish();
+            DatabaseReference reftoAdd=FirebaseDatabase.getInstance().getReference().child("Student").child(userID);
+            reftoAdd.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.getValue() == null){
+                        Toast.makeText(SelectorPage.this, "Please register as a student!", Toast.LENGTH_SHORT).show();
+                        return;
 
-            }
-
-            dref= FirebaseDatabase.getInstance().getReference();
-
-           dref.addValueEventListener(new ValueEventListener() {
-               @Override
-               public void onDataChange(@NonNull DataSnapshot snapshot) {
-                   String status=snapshot.child("Student").child(userID).child("Admin").getValue(String.class);
-
-                   if(status.equals("1")){
-
-                       startActivity(new Intent(getApplicationContext(),AdminArea.class));
+                    }
+                    else{
 
 
-                   }else{
+                        String status=snapshot.child("Admin").getValue(String.class);
 
-                       startActivity(new Intent(getApplicationContext(),AdminRegPage.class));
-
-
-                   }
-                   finish();
+                        if(status.equals("1")){
 
 
-               }
+                            startActivity(new Intent(getApplicationContext(),AdminArea.class));
 
-               @Override
-               public void onCancelled(@NonNull DatabaseError error) {
+                        }else{
 
-               }
-           });
+                            startActivity(new Intent(getApplicationContext(),AdminRegPage.class));
+
+
+                        }
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+
+
+
+
+
+
 
 
 
 
         } else if (vSelector.getId() == R.id.ViewpreBtn) {
-            Intent toAdminArea = new Intent(SelectorPage.this,AddStdDetailsPage.class );
-            toAdminArea.putExtra("stdEmail", email);
-            startActivity(toAdminArea);
-            finish();
-        } else if (vSelector.getId() == R.id.DashLogoutBtn) {
+
+
+            DatabaseReference reftoStd=FirebaseDatabase.getInstance().getReference().child("Student").child(userID);
+            reftoStd.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.getValue() == null){
+                        Intent tostdAddDetail = new Intent(SelectorPage.this,AddStdDetailsPage.class );
+                        startActivity(tostdAddDetail);
+                        finish();
+
+                    }
+                    else{
+
+
+                        Intent tostdArea = new Intent(SelectorPage.this,StudentArea.class );
+                        startActivity(tostdArea);
+                        finish();
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+
+
+
+        } else if (vSelector.getId() == R.id.DashLogoutBtn1) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             Toast.makeText(SelectorPage.this, "Logged out Successfully", Toast.LENGTH_LONG).show();

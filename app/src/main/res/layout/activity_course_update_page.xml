@@ -4,6 +4,436 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CourseUpdatePage">
+    tools:context=".CourseUpdatePage"
+    android:background="#20243C"
+    >
+
+    <Spinner
+        android:id="@+id/CourseSpinnerUpdate"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="#BDAC78"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVHeadingCourseUpdate" />
+
+    <TextView
+        android:id="@+id/TVHeadingCourseUpdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:text="Select the Course to Update the Details "
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/UlinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CourseSpinnerUpdate">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVCoUpdateName"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+
+                android:text="Course Name"
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/ETCoUpdateNameValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/CourseNameCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </CheckBox>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVCoUpdateCredits"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Course Credits"
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/ETCoUpdateCreditsValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <CheckBox
+                android:id="@+id/CourseCreditsCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </CheckBox>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoUpdateSemester"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Semester"
+                android:textColor="#FFC107"
+
+                />
+
+            <EditText
+                android:id="@+id/ETCoUpdateSemesterValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <CheckBox
+                android:id="@+id/CourseSemesterCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </CheckBox>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoUpdateLabMarks"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Lab Marks"
+                android:textColor="#FFC107"
+
+                />
+
+            <EditText
+                android:id="@+id/ETCoUpdateLabMarksValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="5dp"
+
+
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/CourseLabMarksCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </CheckBox>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoUpdateAssignMarks"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Assignment Marks"
+                android:textColor="#FFC107"
+
+                />
+
+            <EditText
+                android:id="@+id/ETCoUpdateAssignMarksValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+
+                android:paddingTop="5dp"
+
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
+            <CheckBox
+                android:id="@+id/CourseAssignMarksCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </CheckBox>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoUpdateProjectMarks"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Project Marks"
+                android:textColor="#FFC107"
+
+                />
+
+            <EditText
+                android:id="@+id/ETCoUpdateProjectMarksValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+            <CheckBox
+                android:id="@+id/CourseProjectMarksCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </CheckBox>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoUpdateMidMarks"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Mid Marks"
+                android:textColor="#FFC107"
+
+                />
+
+            <EditText
+                android:id="@+id/ETCoUpdateMidMarksValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+            <CheckBox
+                android:id="@+id/CourseMidMarksCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </CheckBox>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVCoUpdateEndMarks"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="End Marks"
+
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/ETCoUpdateEndMarksValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/CourseEndMarksCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </CheckBox>
+
+        </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+
+
+
+
+
+        <Button
+                android:id="@+id/CourseUpdateBack"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/cardview_shadow_end_color"
+                android:text="Back"
+
+                />
+
+        <Button
+            android:id="@+id/CourseUpdateButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/cardview_shadow_end_color"
+            android:text="Update"
+
+            />
+
+
+
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progBarCoUpdatePage"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UlinearLayout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

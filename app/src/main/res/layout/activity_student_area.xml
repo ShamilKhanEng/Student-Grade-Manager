@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,14 +21,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -53,7 +53,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:layout_marginTop="56dp"
         android:background="#272935"
         android:orientation="vertical"
@@ -75,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#272935"
-                app:srcCompat="@mipmap/calculate_image"
+                app:srcCompat="@mipmap/std_area_gradecalimage2"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageButton
@@ -84,7 +84,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#272935"
-                app:srcCompat="@mipmap/admin_profile"
+
+                app:srcCompat="@mipmap/std_area_adminprofile6"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
@@ -100,18 +101,25 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#272935"
-                app:srcCompat="@mipmap/std_record_add" />
+                app:srcCompat="@mipmap/std_area_addstddetailimage2" />
 
             <ImageButton
                 android:id="@+id/StdDashViewBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/std_record_view"
+                app:srcCompat="@mipmap/std_area_viewstddetail2"
                 android:background="#272935"
                 />
 
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/StdDashBoardDeleteBtn"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:background="#272935"
+            app:srcCompat="@drawable/admin_delete_image6_foreground" />
 
     </LinearLayout>
 
@@ -142,23 +150,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="@color/admin_profile_background"
+            app:backgroundTint="#BDAC78"
 
-            app:backgroundTint="@null"
-            android:background="@drawable/rounded_corner2"
             android:fontFamily="@font/abril_fatface"
             android:text="Student Zone"
-            android:textColor="@color/profile_image1_background" />
+             />
 
         <Button
             android:id="@+id/DashlogoutBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="@color/profile_image1_background"
+            android:textColor="@color/admin_profile_background"
             android:fontFamily="@font/abril_fatface"
             android:text="Logout"
-            app:backgroundTint="@null"
-            android:background="@drawable/rounded_corner2"
+            app:backgroundTint="#BDAC78"
+
+
 
             />
     </LinearLayout>

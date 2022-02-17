@@ -3,14 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/font/.xml" value="0.284375" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_add_course_page.xml" value="0.23854166666666668" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_add_std_details_page.xml" value="0.23854166666666668" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_admin_area.xml" value="0.264" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_admin_reg_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_anonymous_area.xml" value="0.23854166666666668" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_course_del_page.xml" value="0.21422101449275363" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_course_update_page.xml" value="0.24682971014492755" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_course_view_page.xml" value="0.264" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_expected_grade_cal_page.xml" value="0.2418478260869565" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_garde_course_viewer_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_grade_course_viewer_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_grade_page.xml" value="0.2" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_login_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_marks_add_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_rank_vevierpage.xml" value="0.2418478260869565" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_rank_viewer_page.xml" value="0.4" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_selector_page.xml" value="0.264" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_student_area.xml" value="0.264" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_student_course_remove_page.xml" value="0.2418478260869565" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_student_remove_page.xml" value="0.2418478260869565" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_view_student_detail.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/drawable/Admin_profilePage_foreground.xml" value="0.167" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/drawable/adminUpdate__view_foreground.xml" value="0.1685" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/drawable/rounded_corner2.xml" value="0.2595" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/drawable/std_record_view_foreground.xml" value="0.104" />
+        <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/layout/activity_add_course_page.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/layout/activity_add_std_details_page.xml" value="0.25407608695652173" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/layout/activity_admin_area.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/layout/activity_admin_reg_page.xml" value="0.25407608695652173" />
+        <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/layout/activity_admin_zone.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/layout/activity_adminlogin.xml" value="0.23596014492753623" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/layout/activity_course_add_page.xml" value="0.536" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/layout/activity_course_del_page.xml" value="0.23731884057971014" />

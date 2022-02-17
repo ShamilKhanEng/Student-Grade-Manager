@@ -1,11 +1,9 @@
 package com.example.studenthub;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -17,14 +15,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class AdminRegPage extends AppCompatActivity  implements View.OnClickListener {
 
-    private Button check, make;
+    private Button check, make,back;
     private ProgressBar progressBar;
     private String userEmail, userID;
+    private int flag1=0;
 
     private String uniStr;
     private String facStr;
@@ -57,10 +55,12 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
         check = findViewById(R.id.BtnCheckAvailability);
         make = findViewById(R.id.BtnMakeMeAdmin);
         progressBar = findViewById(R.id.progressBarAdminreg);
+        back=findViewById(R.id.BtnAdminRegBack);
 
         progressBar.setVisibility(View.INVISIBLE);
         check.setOnClickListener(this);
         make.setOnClickListener(this);
+        back.setOnClickListener(this);
 
         //get the email of the current user and get the userID by splitting the
         //email by @
@@ -77,7 +77,7 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
         DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("Student");
 
         //getting the reference to the child "Student" under root
-        ref1.orderByKey().equalTo(userID).addValueEventListener(new ValueEventListener() {
+        ref1.orderByKey().equalTo(userID).addListenerForSingleValueEvent(new ValueEventListener() {
 
 
             //getting a data sanpshot under current user details and extracting the details as necessary
@@ -125,14 +125,9 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
 
                                 if(uniVar.equals(uniStr) && facVar.equals(facStr) && fieldVar.equals(fieldStr) && yearVar.equals(yearStr) && semVar.equals(semStr)){
 
+                                    flag1=1;
                                     Toast.makeText(AdminRegPage.this, "There is already an admin", Toast.LENGTH_LONG).show();
 
-
-
-                                }
-                                else{
-
-                                    Toast.makeText(AdminRegPage.this, "You are qualified to be an Admin", Toast.LENGTH_LONG).show();
 
 
                                 }
@@ -141,6 +136,12 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
 
 
                             }
+
+                            if(flag1==0){
+                                Toast.makeText(AdminRegPage.this, "You are qualified to be an Admin", Toast.LENGTH_LONG).show();
+                            }
+
+
                         }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
@@ -193,8 +194,9 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
 
                                     progressBar.setVisibility(View.INVISIBLE);
 
-                                    //startActivity(new Intent(getApplicationContext(), AdminArea.class));
-                                    //finish();
+                                    //once registered move to admin area
+                                    startActivity(new Intent(getApplicationContext(), AdminArea.class));
+                                    finish();
 
 
                                 }
@@ -213,6 +215,15 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
 
 
 
+
+
+
+        }
+
+        else if(vAdminReg.getId() == R.id.BtnAdminRegBack){
+
+            startActivity(new Intent(getApplicationContext(),SelectorPage.class));
+            finish();
 
         }
     }

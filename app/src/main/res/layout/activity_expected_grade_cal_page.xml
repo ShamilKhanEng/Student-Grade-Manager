@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MarksAddPage"
     android:background="#20243C"
-    tools:context=".CourseAddPage">
+    >
+
 
   <TextView
-      android:id="@+id/TVAddHome"
+      android:id="@+id/TVHeadingCourseGradeAdd"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
       android:layout_marginTop="10dp"
-      android:text="Course Detail"
-      android:textAlignment="center"
+      android:layout_marginEnd="16dp"
+      android:text="Welcome user, lets compute your destiny!"
       android:textColor="@color/white"
-      android:textSize="30sp"
-      android:textStyle="bold"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.43"
+      app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
+
   <LinearLayout
-      android:id="@+id/linearLayout"
+      android:id="@+id/linearLayoutGradeAdd"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
+      android:layout_marginTop="20dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/TVAddHome">
+      app:layout_constraintTop_toBottomOf="@+id/TVHeadingCourseGradeAdd">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,33 +40,33 @@
         android:orientation="horizontal">
 
       <TextView
-          android:id="@+id/TVCourseID"
-          android:layout_width="420dp"
-          android:layout_height="match_parent"
-
-          android:layout_marginBottom="4dp"
-          android:layout_weight="1"
-          android:paddingStart="10dp"
-          android:paddingTop="0dp"
-          android:text="Course ID"
-          android:textAlignment="textStart"
-          android:textColor="#FFC107"
-          android:textSize="14sp" />
-
-      <EditText
-          android:id="@+id/ETxtCourseID"
+          android:id="@+id/TVExpectGradeCumGPA"
           android:layout_width="500dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
+          android:paddingStart="10dp"
 
+          android:text="Current GPA"
+          android:textAlignment="textStart"
+          android:textColor="#FFC107"
+
+          android:textSize="14sp" />
+
+      <EditText
+          android:id="@+id/ETExpectGradeCumGPAValue"
+          android:layout_width="500dp"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
+          android:layout_weight="1"
           android:background="#BDAC78"
           android:ems="10"
-          android:hint="CO225"
-          android:inputType="textPersonName"
+
           android:textColor="@color/black"
-          android:textColorHint="@color/black"
+          android:textColorHint="#504C4C"
           android:textSize="14sp" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -73,21 +75,21 @@
         android:orientation="horizontal">
 
       <TextView
-          android:id="@+id/TVCourseName"
-          android:layout_width="420dp"
+          android:id="@+id/TVCoExpectGradeTotalSemCount"
+          android:layout_width="500dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:paddingStart="10dp"
 
-          android:text="Course Name"
+          android:text="Total Count of Semesters"
           android:textAlignment="textStart"
           android:textColor="#FFC107"
 
           android:textSize="14sp" />
 
       <EditText
-          android:id="@+id/ETxtCourseName"
+          android:id="@+id/ETCoExpectGradeTotalSemCountValue"
           android:layout_width="500dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
@@ -95,51 +97,12 @@
           android:background="#BDAC78"
           android:ems="10"
 
-          android:hint="Software Construction"
-          android:inputType="textPersonName"
           android:textColor="@color/black"
-          android:textColorHint="@color/black"
-          android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:orientation="horizontal">
-
-      <TextView
-          android:id="@+id/TVCourseCredits"
-          android:layout_width="420dp"
-          android:layout_height="match_parent"
-          android:layout_marginBottom="4dp"
-          android:layout_weight="1"
-          android:paddingStart="10dp"
-          android:text="Course Credits"
-          android:textAlignment="textStart"
-          android:textColor="#FFC107"
-
+          android:textColorHint="#504C4C"
           android:textSize="14sp" />
 
-      <EditText
-          android:id="@+id/ETxtCourseCredit"
-          android:layout_width="500dp"
-          android:layout_height="match_parent"
-          android:layout_marginBottom="4dp"
-          android:layout_weight="1"
-          android:background="#BDAC78"
-          android:ems="10"
-          android:hint="3"
-
-          android:inputType="textPersonName"
-          android:textColor="@color/black"
-          android:textColorHint="@color/black"
-          android:textSize="14sp"
-          tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
-
-
-
 
 
     <LinearLayout
@@ -153,49 +116,45 @@
 
 
       <TextView
-          android:id="@+id/TVSEmesterName"
-          android:layout_width="320dp"
+          android:id="@+id/TVCoExpectGradeSemesterCurrent"
+          android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:paddingStart="10dp"
-          android:text="Semester"
+          android:text="Current Semester"
           android:textColor="#FFC107"
 
           />
 
       <EditText
-          android:id="@+id/ETSemesterVal"
+          android:id="@+id/ETCoExpectGradeCurrentSemesterValue"
           android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:background="#BDAC78"
-          android:hint="2"
           android:paddingTop="5dp"
-
           android:textColor="@color/black"
-
-          android:textColorHint="@color/black"
+          android:textColorHint="#504C4C"
           android:textSize="14sp"
           tools:ignore="TouchTargetSizeCheck" />
-    </LinearLayout>
 
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-
         android:orientation="horizontal"
-
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
 
       <TextView
-          android:id="@+id/TVLabMarks"
-          android:layout_width="320dp"
+          android:id="@+id/TVCoExpectGradeLabMarks"
+          android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
@@ -206,19 +165,21 @@
           />
 
       <EditText
-          android:id="@+id/ETLabMarks"
+          android:id="@+id/ETCoExpectGradeLabMarksValue"
           android:layout_width="400dp"
           android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:background="#BDAC78"
-          android:layout_marginBottom="4dp"
           android:paddingTop="5dp"
-          android:hint="15"
+
 
           android:textColor="@color/black"
 
-          android:textColorHint="@color/black"
+          android:textColorHint="#504C4C"
           android:textSize="14sp" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -232,8 +193,8 @@
 
 
       <TextView
-          android:id="@+id/TVAssignMarks"
-          android:layout_width="320dp"
+          android:id="@+id/TVCoExpectGradeAssignMarks"
+          android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
@@ -244,20 +205,22 @@
           />
 
       <EditText
-          android:id="@+id/ETAssignMarks"
+          android:id="@+id/ETCoExpectGradeAssignMarksValue"
           android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:background="#BDAC78"
-          android:hint="15"
+
           android:paddingTop="5dp"
 
           android:textColor="@color/black"
 
-          android:textColorHint="@color/black"
+          android:textColorHint="#504C4C"
           android:textSize="14sp"
           tools:ignore="TouchTargetSizeCheck" />
+
+
     </LinearLayout>
 
 
@@ -272,8 +235,8 @@
 
 
       <TextView
-          android:id="@+id/TVProjectMarks"
-          android:layout_width="320dp"
+          android:id="@+id/TVCoExpectGradeProjectMarks"
+          android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
@@ -284,19 +247,19 @@
           />
 
       <EditText
-          android:id="@+id/ETProjectMarks"
+          android:id="@+id/ETCoExpectGradeProjectMarksValue"
           android:layout_width="400dp"
           android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:background="#BDAC78"
-          android:layout_marginBottom="4dp"
           android:paddingTop="5dp"
-          android:hint="30"
-
           android:textColor="@color/black"
 
-          android:textColorHint="@color/black"
+          android:textColorHint="#504C4C"
           android:textSize="14sp" />
+
+
     </LinearLayout>
 
 
@@ -311,8 +274,8 @@
 
 
       <TextView
-          android:id="@+id/TVMidMarks"
-          android:layout_width="320dp"
+          android:id="@+id/TVCoExpectGradeMidMarks"
+          android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
@@ -323,58 +286,94 @@
           />
 
       <EditText
-          android:id="@+id/ETMidMarks"
+          android:id="@+id/ETCoExpectGradeMidMarksValue"
           android:layout_width="400dp"
           android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:background="#BDAC78"
-          android:layout_marginBottom="4dp"
           android:paddingTop="5dp"
-          android:hint="0"
-
           android:textColor="@color/black"
-
-          android:textColorHint="@color/black"
+          android:textColorHint="#504C4C"
           android:textSize="14sp" />
-    </LinearLayout>
 
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:orientation="horizontal">
+
+        android:orientation="horizontal"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
 
       <TextView
-          android:id="@+id/TVEndMarks"
-          android:layout_width="420dp"
+          android:id="@+id/TVCoExpectGradeTotEndMarks"
+          android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:paddingStart="10dp"
-          android:text="End Marks"
-
-          android:textAlignment="textStart"
+          android:text="Allocated End Marks"
           android:textColor="#FFC107"
 
-          android:textSize="14sp" />
+          />
 
       <EditText
-          android:id="@+id/ETEndMarks"
-          android:layout_width="500dp"
+          android:id="@+id/ETCoExpectGradeTotEndMarksValue"
+          android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
           android:background="#BDAC78"
-          android:ems="10"
-          android:hint="40"
-
-          android:inputType="textPersonName"
+          android:paddingTop="5dp"
           android:textColor="@color/black"
-          android:textColorHint="@color/black"
+          android:textColorHint="#504C4C"
           android:textSize="14sp" />
+
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+
+        android:orientation="horizontal"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+      <TextView
+          android:id="@+id/TVCoExpectGradeExpectedESemGPA"
+          android:layout_width="400dp"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
+          android:layout_weight="1"
+          android:paddingStart="10dp"
+          android:text="Expected Semester GPA"
+          android:textColor="#FFC107"
+
+          />
+
+      <Spinner
+          android:id="@+id/SpCoExpectGradeExpectedSemGPAValue"
+          android:layout_width="400dp"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
+          android:layout_weight="1"
+          android:background="#BDAC78"
+          android:paddingTop="5dp"
+          android:textColor="@color/black"
+
+          android:textColorHint="#504C4C"
+          android:textSize="14sp" />
+
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -388,80 +387,155 @@
 
 
       <TextView
-          android:id="@+id/TVCount"
-          android:layout_width="320dp"
-          android:layout_height="match_parent"
-          android:layout_marginBottom="4dp"
-          android:layout_weight="1"
-          android:paddingStart="10dp"
-          android:text="Courses Added"
-
-          android:textColor="#FFC107" />
-
-      <TextView
-          android:id="@+id/TVCountVal"
+          android:id="@+id/TVCoExpectGradeExpectedFinalGPA"
           android:layout_width="400dp"
           android:layout_height="match_parent"
           android:layout_marginBottom="4dp"
           android:layout_weight="1"
-          android:background="#D8AE2F"
+          android:paddingStart="10dp"
+          android:text="Expected Final GPA"
+          android:textColor="#FFC107"
 
+          />
 
+      <Spinner
+          android:id="@+id/SpCoExpectGradeExpectedFinalGPAValue"
+          android:layout_width="400dp"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
+          android:layout_weight="1"
+          android:background="#BDAC78"
           android:paddingTop="5dp"
-
-          android:text="0"
           android:textColor="@color/black"
-          android:textColorHint="@color/black" />
+          android:textColorHint="#504C4C"
+          android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/TVExpectGradeEndMarks"
+          android:layout_width="549dp"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
+          android:layout_weight="1"
+          android:paddingStart="10dp"
+          android:text="Min expected End Marks"
+
+          android:textAlignment="textStart"
+          android:textColor="#FFC107"
+
+          android:textSize="14sp" />
+
+      <TextView
+          android:id="@+id/TVExpectGradeEndMarksValue"
+          android:layout_width="500dp"
+          android:layout_height="match_parent"
+          android:layout_marginBottom="4dp"
+          android:layout_weight="1"
+          android:background="#BDAC78"
+          android:ems="10"
+          android:textColor="@color/black"
+          android:textColorHint="#504C4C"
+          android:textSize="14sp" />
+
+      <CheckBox
+          android:id="@+id/ExpectGradeEndMarksCheck"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent">
+
+      </CheckBox>
+
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
 
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-
-
-        >
-
-      <Button
-          android:id="@+id/MoreBtn"
-          android:layout_width="match_parent"
+      <TextView
+          android:id="@+id/TVExpectGradeMinGPA"
+          android:layout_width="549dp"
           android:layout_height="match_parent"
-          android:layout_marginTop="10dp"
-
+          android:layout_marginBottom="4dp"
           android:layout_weight="1"
-          android:backgroundTint="@color/cardview_shadow_end_color"
-          android:text="ADD MORE" />
+          android:paddingStart="10dp"
+          android:text="Minimum expected GPA "
 
-      <Button
-          android:id="@+id/EndBtn"
-          android:layout_width="match_parent"
+          android:textAlignment="textStart"
+          android:textColor="#FFC107"
+
+          android:textSize="14sp" />
+
+      <TextView
+          android:id="@+id/TVExpectGradeMinGPAValue"
+          android:layout_width="500dp"
           android:layout_height="match_parent"
-          android:layout_marginTop="10dp"
+          android:layout_marginBottom="4dp"
           android:layout_weight="1"
-          android:backgroundTint="@color/cardview_shadow_end_color"
+          android:background="#BDAC78"
+          android:ems="10"
+          android:textColor="@color/black"
+          android:textColorHint="#504C4C"
+          android:textSize="14sp" />
 
+      <CheckBox
+          android:id="@+id/ExpectGrademinGPACheck"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent">
 
-          android:text="NEXT" />
+      </CheckBox>
+
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        >
+
+
+      <Button
+          android:id="@+id/CourseExpectGradeBack"
+          android:layout_width="200dp"
+          android:layout_height="match_parent"
+          android:backgroundTint="@color/cardview_shadow_end_color"
+          android:text="Back"
+
+          />
+
+      <Button
+          android:id="@+id/ExpectGradeComputeButton"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:backgroundTint="@color/cardview_shadow_end_color"
+          android:text="Compute"
+
+          />
+
+
+    </LinearLayout>
 
   </LinearLayout>
 
   <ProgressBar
-      android:id="@+id/proCourseAddPage"
+      android:id="@+id/progBarCoExpectGradePage"
       style="?android:attr/progressBarStyle"
-      android:layout_width="34dp"
-      android:layout_height="36dp"
-      android:layout_marginTop="8dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.498"
+      android:layout_marginTop="2dp"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+      app:layout_constraintTop_toBottomOf="@+id/linearLayoutGradeAdd" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

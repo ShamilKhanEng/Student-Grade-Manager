@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#20243C"
+    tools:context=".GradeCourseViewerPage">
+
+
+    <Spinner
+        android:id="@+id/CourseSpinnerGradeView"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="#BDAC78"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVHeadingCourseGradeView" />
+
+    <TextView
+        android:id="@+id/TVHeadingCourseGradeView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:text="Select the Course to view details of the Course"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutGradeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CourseSpinnerGradeView">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVCoGradeViewName"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+
+                android:text="Course Name"
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TVCoGradeViewNameValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoGradeViewSemester"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Semester"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVCoGradeViewSemesterValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoGradeViewLabMarks"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Lab Marks"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVCoGradeViewLabMarksValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="5dp"
+
+
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoGradeViewAssignMarks"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Assignment Marks"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVCoGradeViewAssignMarksValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+
+                android:paddingTop="5dp"
+
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoGradeViewProjectMarks"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Project Marks"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVCoGradeViewProjectMarksValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:orientation="horizontal"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/TVCoGradeViewMidMarks"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Mid Marks"
+                android:textColor="#FFC107"
+
+                />
+
+            <TextView
+                android:id="@+id/TVCoGradeViewMidMarksValue"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVCoGradeViewEndMarks"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="End Marks"
+
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TVCoGradeViewEndMarksValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVCoGradeViewGPA"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Final GPA"
+
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/ETCoGradeViewGPAValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TVCoGradeViewGRADE"
+                android:layout_width="420dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Final Grade"
+
+                android:textAlignment="textStart"
+                android:textColor="#FFC107"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TVCoGradeViewGRADEValue"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="#BDAC78"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="#504C4C"
+                android:textSize="14sp" />
+
+
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+
+
+
+
+
+            <Button
+                android:id="@+id/CourseGradeViewBack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/cardview_shadow_end_color"
+                android:text="Back"
+
+                />
+
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progBarCoGradeViewPage"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutGradeView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
