@@ -146,18 +146,6 @@
             android:text="Student Zone"
             android:textColor="@color/profile_image1_background" />
 
-        <Button
-            android:id="@+id/adminViewSearchBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textColor="@color/profile_image1_background"
-            android:fontFamily="@font/abril_fatface"
-            android:text="Logout"
-            app:backgroundTint="@null"
-            android:background="@drawable/rounded_corner2"
-
-            />
     </LinearLayout>
 
 

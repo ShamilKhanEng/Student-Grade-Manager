@@ -2,14 +2,19 @@ package com.example.studenthub;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +43,14 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
 
     private DatabaseReference dref;
 
+    private AlertDialog.Builder dialogbuilder;
+    private AlertDialog dialog;
+    private Button mainPopUpClose;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +61,10 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
         stdAnonymous = findViewById(R.id.GradCalBTn);
         stdArea = findViewById(R.id.ViewpreBtn);
         adminArea = findViewById(R.id.AdminDetailsBtn);
-        logOutBtn = findViewById(R.id.DashLogoutBtn1);
+
 
 
         //calling the methods set on setOnClickListener to trigger the Onclick method when these buttons are clicked
-        logOutBtn.setOnClickListener(this);
         stdAnonymous.setOnClickListener(this);
         stdArea.setOnClickListener(this);
         adminArea.setOnClickListener(this);
@@ -72,16 +84,47 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
 
         String dispStr=getIntent().getStringExtra("nameOfUser");
 
-        if(dispStr !=null && !(TextUtils.isEmpty(dispStr)) && dispStr.substring(0,9).equals("loginPage")){
-            dispName.setText(dispStr.substring(9));
-        }
-        else if(dispStr !=null && !(TextUtils.isEmpty(dispStr)) && dispStr.substring(0,8).equals("SignPage")){
+
+        if(dispStr !=null && !(TextUtils.isEmpty(dispStr)) && dispStr.substring(0,8).equals("SignPage")){
             dispName.setText(dispStr.substring(8));
         }
+        else{
+            dispName.setText(userID);
+        }
 
 
 
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater =getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.menu_help:
+                createNewContactDialog();
+                return true;
+
+            case R.id.menu_logout:
+
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Toast.makeText(SelectorPage.this, "Logged out Successfully", Toast.LENGTH_LONG).show();
+                finish();
+
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -149,20 +192,19 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
         } else if (vSelector.getId() == R.id.ViewpreBtn) {
 
 
-            DatabaseReference reftoStd=FirebaseDatabase.getInstance().getReference().child("Student").child(userID);
+            DatabaseReference reftoStd = FirebaseDatabase.getInstance().getReference().child("Student").child(userID);
             reftoStd.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.getValue() == null){
-                        Intent tostdAddDetail = new Intent(SelectorPage.this,AddStdDetailsPage.class );
+                    if (snapshot.getValue() == null) {
+                        Intent tostdAddDetail = new Intent(SelectorPage.this, AddStdDetailsPage.class);
                         startActivity(tostdAddDetail);
                         finish();
 
-                    }
-                    else{
+                    } else {
 
 
-                        Intent tostdArea = new Intent(SelectorPage.this,StudentArea.class );
+                        Intent tostdArea = new Intent(SelectorPage.this, StudentArea.class);
                         startActivity(tostdArea);
                         finish();
 
@@ -176,16 +218,34 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
             });
 
 
-
-
-
-        } else if (vSelector.getId() == R.id.DashLogoutBtn1) {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            Toast.makeText(SelectorPage.this, "Logged out Successfully", Toast.LENGTH_LONG).show();
-            finish();
         }
+    }
+
+    public void createNewContactDialog(){
+        dialogbuilder =new AlertDialog.Builder(this);
+        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup,null);
+
+
+        mainPopUpClose=(Button) contactPopupView.findViewById(R.id.mainMenuBtnClose);
+
+        dialogbuilder.setView(contactPopupView);
+        dialog=dialogbuilder.create();
+        dialog.show();
+
+
+
+
+
+        mainPopUpClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
     }
+
+
+
 
 }

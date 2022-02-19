@@ -1,18 +1,31 @@
 package com.example.studenthub;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class AdminArea extends AppCompatActivity implements View.OnClickListener  {
 
     private ImageButton CourseDel,CourseUpdate,CourseView,CourseAdd;
     private Button logout,toslector;
+
+
+    private AlertDialog.Builder dialogbuilder;
+    private AlertDialog dialog;
+    private Button mainPopUpClose;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +35,6 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
         CourseDel=findViewById(R.id.AdminAreaDeleteBtn);
         CourseUpdate=findViewById(R.id.adminDashUpdateBtn);
         CourseView=findViewById(R.id.adminDashViewbtn);
-        logout=findViewById(R.id.adminViewSearchBtn);
         toslector=findViewById(R.id.toStdZoneBtnfromadmin);
         CourseAdd=findViewById(R.id.admindashAddBtn);
 
@@ -32,11 +44,40 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
         CourseDel.setOnClickListener(this);
         CourseUpdate.setOnClickListener(this);
         CourseView.setOnClickListener(this);
-        logout.setOnClickListener(this);
         toslector.setOnClickListener(this);
         CourseAdd.setOnClickListener(this);
 
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater =getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.menu_help:
+                createNewContactDialog();
+                return true;
+
+            case R.id.menu_logout:
+
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Toast.makeText(AdminArea.this, "Logged out Successfully", Toast.LENGTH_LONG).show();
+                finish();
+
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -62,13 +103,7 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
             finish();
 
         }
-        else if(view.getId()==R.id.adminViewSearchBtn){
 
-            startActivity(new Intent(getApplicationContext(),LoginPage.class));
-            Toast.makeText(AdminArea.this,"successfully logged out",Toast.LENGTH_LONG).show();
-            finish();
-
-        }
         else if(view.getId()==R.id.toStdZoneBtnfromadmin){
 
             startActivity(new Intent(getApplicationContext(),SelectorPage.class));
@@ -85,6 +120,30 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
 
         }
 
+
+    }
+
+    public void createNewContactDialog(){
+        dialogbuilder =new AlertDialog.Builder(this);
+        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup,null);
+
+
+        mainPopUpClose=(Button) contactPopupView.findViewById(R.id.mainMenuBtnClose);
+
+        dialogbuilder.setView(contactPopupView);
+        dialog=dialogbuilder.create();
+        dialog.show();
+
+
+
+
+
+        mainPopUpClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
     }
 }

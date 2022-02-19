@@ -1,10 +1,14 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -25,6 +29,10 @@ public class GradePage extends AppCompatActivity implements View.OnClickListener
     private ImageButton ExpectedGradeCal, BtnRankViewer, ViewStdGradeDetails,AddStdCourseDetail;
     private Button logOutgradeDashBtn,toStudentAreaBtn;
 
+    private AlertDialog.Builder dialogbuilder;
+    private AlertDialog dialog;
+    private Button mainPopUpClose;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +43,6 @@ public class GradePage extends AppCompatActivity implements View.OnClickListener
         BtnRankViewer = findViewById(R.id.RankViewerBtn);
         ViewStdGradeDetails = findViewById(R.id.ViewPrevCourseGradeBtn);
         AddStdCourseDetail = findViewById(R.id.GradeDashAddMarkBtn);
-        logOutgradeDashBtn = findViewById(R.id.GradeDashlogoutBtn);
         ExpectedGradeCal=findViewById(R.id.ExpectMarkBtn);
         toStudentAreaBtn=findViewById(R.id.gradeToStdAreaBtn);
 
@@ -49,6 +56,36 @@ public class GradePage extends AppCompatActivity implements View.OnClickListener
 
 
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater =getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.menu_help:
+                createNewContactDialog();
+                return true;
+
+            case R.id.menu_logout:
+
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Toast.makeText(GradePage.this, "Logged out Successfully", Toast.LENGTH_LONG).show();
+                finish();
+
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -95,15 +132,34 @@ public class GradePage extends AppCompatActivity implements View.OnClickListener
 
 
 
-        else if (vGradeDash.getId() == R.id.GradeDashlogoutBtn) {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            Toast.makeText(GradePage.this, "Logged out Successfully", Toast.LENGTH_LONG).show();
-            finish();
-        }
 
 
 
 
     }
+
+    public void createNewContactDialog(){
+        dialogbuilder =new AlertDialog.Builder(this);
+        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup,null);
+
+
+        mainPopUpClose=(Button) contactPopupView.findViewById(R.id.mainMenuBtnClose);
+
+        dialogbuilder.setView(contactPopupView);
+        dialog=dialogbuilder.create();
+        dialog.show();
+
+
+
+
+
+        mainPopUpClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+    }
+
 }

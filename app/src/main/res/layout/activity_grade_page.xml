@@ -149,19 +149,6 @@
             android:text="Student Area"
             />
 
-        <Button
-            android:id="@+id/GradeDashlogoutBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textColor="@color/admin_profile_background"
-            android:fontFamily="@font/abril_fatface"
-            android:text="Logout"
-            app:backgroundTint="#BDAC78"
-
-
-
-            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

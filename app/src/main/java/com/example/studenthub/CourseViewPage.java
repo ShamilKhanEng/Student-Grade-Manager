@@ -60,7 +60,7 @@ public class CourseViewPage extends AppCompatActivity {
         List<String> CoursesList = new ArrayList<>();
         spinner=findViewById(R.id.CourseSpinnerView);
 
-        BtnAdminViewSearch=findViewById(R.id.adminViewSearchBtn);
+
 
 
         BtnBack=findViewById(R.id.CourseViewBackButton);
