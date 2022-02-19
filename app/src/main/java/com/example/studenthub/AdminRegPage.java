@@ -22,7 +22,7 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
     private Button check, make,back;
     private ProgressBar progressBar;
     private String userEmail, userID;
-    private int flag1=0,flag2=0;
+    private int flag1=0;
 
     private String uniStr;
     private String facStr;
@@ -170,52 +170,41 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
                                 if(uniVar.equals(uniStr) && facVar.equals(facStr) && fieldVar.equals(fieldStr) && yearVar.equals(yearStr) && semVar.equals(semStr)){
 
                                     Toast.makeText(AdminRegPage.this, "There is already an admin", Toast.LENGTH_LONG).show();
-                                    flag2=1;
-                                    progressBar.setVisibility(View.INVISIBLE);
-                                    return;
 
+
+
+                                }
+                                else{
+
+                                    //This will give the reference to the root in the database
+                                    dref= FirebaseDatabase.getInstance().getReference();
+
+                                    //now we are going to add details
+
+                                    dref.child("Admin").child(userID).child("University").setValue(uniStr);
+                                    dref.child("Admin").child(userID).child("Faculty").setValue(facStr);
+                                    dref.child("Admin").child(userID).child("Field").setValue(fieldStr);
+                                    dref.child("Admin").child(userID).child("Year").setValue(yearStr);
+                                    dref.child("Admin").child(userID).child("Semester").setValue(semStr);
+                                    dref.child("Student").child(userID).child("Admin").setValue("1");
+
+
+
+                                    Toast.makeText(AdminRegPage.this, "You are added as an Admin Successfully", Toast.LENGTH_LONG).show();
+
+                                    progressBar.setVisibility(View.INVISIBLE);
+
+                                    //once registered move to admin area
+                                    startActivity(new Intent(getApplicationContext(), AdminArea.class));
+                                    finish();
 
 
                                 }
 
 
 
-                            }
-
-                            if(flag2==0){
-
-                                //This will give the reference to the root in the database
-                                dref= FirebaseDatabase.getInstance().getReference();
-
-                                //now we are going to add details
-
-                                dref.child("Admin").child(userID).child("University").setValue(uniStr);
-                                dref.child("Admin").child(userID).child("Faculty").setValue(facStr);
-                                dref.child("Admin").child(userID).child("Field").setValue(fieldStr);
-                                dref.child("Admin").child(userID).child("Year").setValue(yearStr);
-                                dref.child("Admin").child(userID).child("Semester").setValue(semStr);
-                                dref.child("Student").child(userID).child("Admin").setValue("1");
-
-
-
-                                Toast.makeText(AdminRegPage.this, "You are added as an Admin Successfully", Toast.LENGTH_LONG).show();
-
-                                progressBar.setVisibility(View.INVISIBLE);
-
-                                //once registered move to admin area
-                                startActivity(new Intent(getApplicationContext(), AdminArea.class));
-                                finish();
-
 
                             }
-
-
-
-
-
-
-
-
                         }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
