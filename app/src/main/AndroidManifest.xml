@@ -15,12 +15,7 @@
         <activity
             android:name=".RankViewerPage"
             android:exported="false" />
-        <activity
-            android:name=".RankViewerPAge"
-            android:exported="false" />
-        <activity
-            android:name=".RankVevierpage"
-            android:exported="false" />
+
         <activity
             android:name=".SelectorPage"
             android:exported="false" />

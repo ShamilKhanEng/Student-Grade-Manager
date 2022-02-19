@@ -33,8 +33,13 @@ public class AddStdDetailsPage extends AppCompatActivity {
     private String userEmail,userID;
     private ProgressBar proBarAddStd;
 
+    //this string is to store the message from the receiving page
+    private String receivedStr;
+
     private AutoCompleteTextView uni,fac,field;
     private Spinner uniSp,facSp,fieldSp;
+
+
 
     private String uniStr;
     private String facStr;
@@ -72,9 +77,7 @@ public class AddStdDetailsPage extends AppCompatActivity {
         regNum=findViewById(R.id.ETRegNum);
         toDashBoardBTn=findViewById(R.id.FromStdDetailstoStddash);
 
-        //uniSp=findViewById(R.id.AddStdUniSpinner);
-        //facSp=findViewById(R.id.AddStdfacSpinner);
-        //fieldSp=findViewById(R.id.AddStdfieldSpinner);
+
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -86,6 +89,11 @@ public class AddStdDetailsPage extends AppCompatActivity {
             finish();
 
         }
+
+
+
+
+
 
 
 
@@ -249,8 +257,77 @@ public class AddStdDetailsPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //once the addition is finished we can go back to std Dashboard
-                startActivity(new Intent(getApplicationContext(),StudentArea.class));
-                finish();
+
+
+                //to identify the intent from which the user entered this activity
+                receivedStr=getIntent().getStringExtra("fromStudentArea");
+
+                if(receivedStr !=null && !(TextUtils.isEmpty(receivedStr)) && receivedStr.equals("StudentArea")){
+
+                    startActivity(new Intent(getApplicationContext(),SelectorPage.class));
+                    finish();
+
+                }
+                else{
+
+
+
+
+                    //getting and storing the student details to check if he already has registered as a user
+                    //comparing the obtain details with admin details to find the admin userid
+                    FirebaseDatabase.getInstance().getReference().child("Student")
+                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshotstd) {
+
+
+                                 int flag=0;
+
+                                    for (DataSnapshot snapshotStd : dataSnapshotstd.getChildren()) {
+
+
+                                        if(snapshotStd.getKey().toString().equals(userID)) {
+
+                                            startActivity(new Intent(getApplicationContext(),StudentArea.class));
+                                            flag=1;
+                                            finish();
+
+                                        }
+
+                                    }
+
+                                    if(flag==0){
+
+                                        Toast.makeText(AddStdDetailsPage.this, "You need to fill and register!", Toast.LENGTH_LONG).show();
+
+                                    }
+
+
+
+
+
+
+
+                                }
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    throw databaseError.toException();
+                                }
+                            });
+
+
+
+
+
+
+
+
+
+                }
+
+
+
+
 
 
             }

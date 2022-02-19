@@ -121,6 +121,7 @@ public class StudentArea extends AppCompatActivity implements View.OnClickListen
 
        else if (vStdArea.getId() == R.id.AddDetailsBtn) {
         Intent toStdAddDetails = new Intent(StudentArea.this,AddStdDetailsPage.class );
+        toStdAddDetails.putExtra("fromStudentArea","StudentArea");
         startActivity(toStdAddDetails);
         finish();
        }
