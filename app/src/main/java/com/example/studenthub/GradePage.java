@@ -50,7 +50,6 @@ public class GradePage extends AppCompatActivity implements View.OnClickListener
         BtnRankViewer.setOnClickListener(this);
         ViewStdGradeDetails.setOnClickListener(this);
         AddStdCourseDetail.setOnClickListener(this);
-        logOutgradeDashBtn.setOnClickListener(this);
         ExpectedGradeCal.setOnClickListener(this);
         toStudentAreaBtn.setOnClickListener(this);
 
