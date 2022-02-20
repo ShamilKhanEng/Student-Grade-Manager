@@ -281,7 +281,7 @@ public class RankViewerPage extends AppCompatActivity {
 
                 proViewRankPage.setVisibility(View.VISIBLE);
 
-                if (listener1Completed && listener2Completed && listener3Completed ) {
+                //if (listener1Completed && listener2Completed && listener3Completed ) {
 
 
                 int StudentCount=0;
@@ -329,7 +329,7 @@ public class RankViewerPage extends AppCompatActivity {
 
 
 
-                }
+                //}
 
 
             }
