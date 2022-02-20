@@ -2,6 +2,8 @@ package com.example.studenthub;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,11 +50,19 @@ public class RankViewerPage extends AppCompatActivity {
     private String AdminStatusStr;
     private String userID,userEmail;
 
+    private int flagCount=0;
+
 
     private boolean listener1Completed=false;
     private boolean listener2Completed=false;
     private boolean listener3Completed=false;
     private Double CurrentUserAgGPA=0.0;
+
+   // MutableLiveData<Boolean> listener1Completed = new MutableLiveData<>();
+    //MutableLiveData<Boolean> listener2Completed = new MutableLiveData<>();
+    //MutableLiveData<Boolean> listener3Completed = new MutableLiveData<>();
+
+
 
 
 
@@ -83,6 +93,11 @@ public class RankViewerPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank_viewer_page);
 
+/*
+        listener1Completed.setValue(false); //Initilize with a value
+        listener2Completed.setValue(false); //Initilize with a value
+        listener3Completed.setValue(false); //Initilize with a value
+*/
 
         //linking the buttons in xml script with the java class button variable
         viewRankBtn=findViewById(R.id.BtnViewRank);
@@ -174,12 +189,20 @@ public class RankViewerPage extends AppCompatActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+
+
+
+
+
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             uniVar1 = snapshot.child("University").getValue().toString();
                             facVar1 = snapshot.child("Faculty").getValue().toString();
                             fieldVar1 = snapshot.child("Field").getValue().toString();
                             yearVar1 = snapshot.child("Year").getValue().toString();
                             semVar1 = snapshot.child("Semester").getValue().toString();
+
 
 
                             if (uniVar1.equals(uniStr) && facVar1.equals(facStr) && fieldVar1.equals(fieldStr) && yearVar1.equals(yearStr) && semVar1.equals(semStr)) {
@@ -228,11 +251,16 @@ public class RankViewerPage extends AppCompatActivity {
 
 
 
+
+
+
                                                             }
 
 
                                                         }
                                                         listener3Completed=true;
+                                                        //listener3Completed.setValue(true);
+
 
                                                     }
 
@@ -252,6 +280,7 @@ public class RankViewerPage extends AppCompatActivity {
                                         }
 
                                         listener2Completed=true;
+                                        //listener2Completed.setValue(true);
                                     }
 
                                     @Override
@@ -261,8 +290,12 @@ public class RankViewerPage extends AppCompatActivity {
                                 });
 
                             }
+
                         }
                         listener1Completed=true;
+                        //listener1Completed.setValue(true);
+
+
 
 
                     }
@@ -286,62 +319,12 @@ public class RankViewerPage extends AppCompatActivity {
 
         //once the user click on the View Rank button ion the activity this block of codes is triggered
         viewRankBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
-                proViewRankPage.setVisibility(View.VISIBLE);
 
-                if (listener1Completed && listener2Completed && listener3Completed ) {
-
-
-                int StudentCount=0;
-                int CourseCount=0;
-
-                    for(String key:myMultimap.keySet()){
-                        StudentCount++;
-                        sum=0;
-                        CourseCount=0;
-                        for(String value:myMultimap.get(key)){
-                            CourseCount++;
-
-                            sum=sum+ Double.parseDouble(value);
-
-                        }
-                        if(key.equals(userID)){
-                            CurrentUserAgGPA=sum/CourseCount;
-                        }
-
-                        avgGPA.add(sum/CourseCount);
-
-
-                    }
-
-                    // Sorting ArrayList in descending Order
-                    // using Collection.sort() method
-                    // by passing Collections.reverseOrder() as comparator
-                    Collections.sort(avgGPA, Collections.reverseOrder());
-
-                    // using indexOf() to find index of CurrentUserAgGPA
-                    position =avgGPA.indexOf(CurrentUserAgGPA)+1;
-                    //Toast.makeText(RankViewerPage.this,position+"", Toast.LENGTH_SHORT).show();
-
-
-                    //setting the rank
-                    RankTV.setText(position+"");
-                    SemTV.setText(semStr);
-                    SemGPATV.setText(CurrentUserAgGPA+"");
-                    StdCountTV.setText(StudentCount+"");
-
-
-
-                    proViewRankPage.setVisibility(View.INVISIBLE);
-
-
-
-
-                }
-
-
+                setRank();
             }
 
 
@@ -362,6 +345,74 @@ public class RankViewerPage extends AppCompatActivity {
 
             }
         });
+
+
+
+    }
+
+
+    public void setRank(){
+
+        if (listener1Completed && listener2Completed && listener3Completed ) {
+
+
+            int StudentCount=0;
+            int CourseCount=0;
+
+            for(String key:myMultimap.keySet()){
+                StudentCount++;
+                sum=0;
+                CourseCount=0;
+                for(String value:myMultimap.get(key)){
+                    CourseCount++;
+
+                    sum=sum+ Double.parseDouble(value);
+
+                }
+                if(key.equals(userID)){
+                    CurrentUserAgGPA=sum/CourseCount;
+                }
+
+                avgGPA.add(sum/CourseCount);
+
+
+            }
+
+            // Sorting ArrayList in descending Order
+            // using Collection.sort() method
+            // by passing Collections.reverseOrder() as comparator
+            Collections.sort(avgGPA, Collections.reverseOrder());
+
+            // using indexOf() to find index of CurrentUserAgGPA
+
+
+            if(flagCount==0){
+                position = avgGPA.indexOf(CurrentUserAgGPA) + 1;
+
+            }
+
+
+
+
+
+            //Toast.makeText(RankViewerPage.this,position+"", Toast.LENGTH_SHORT).show();
+
+
+            //setting the rank
+            RankTV.setText(position+"");
+            SemTV.setText(semStr);
+            SemGPATV.setText(CurrentUserAgGPA+"");
+            StdCountTV.setText(StudentCount+"");
+
+
+
+
+
+
+            flagCount=1;
+
+        }
+
 
 
 
