@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class RankViewerPage extends AppCompatActivity {
     private ProgressBar proViewRankPage;
     private TextView RankTV,SemTV,SemGPATV,StdCountTV;
     private int studentCount=0,courseCount=0;
+
+    private int flagfound=0;
 
     //variables to get and store the current user details
     private String uniStr;
@@ -197,47 +200,54 @@ public class RankViewerPage extends AppCompatActivity {
                                             String userkey = dsp.getKey();
 
 
-                                            DatabaseReference reftoCo = FirebaseDatabase.getInstance().getReference().child("Student").child(StduserID).child("Courses").child(userkey);
+
+                                            if(userkey !=null && !(TextUtils.isEmpty(userkey))){
+                                                DatabaseReference reftoCo = FirebaseDatabase.getInstance().getReference().child("Student").child(StduserID).child("Courses").child(userkey);
 
 
-                                            reftoCo.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                reftoCo.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                                    for (DataSnapshot courseChild : snapshot.getChildren()) {
-
-
-                                                        if (courseChild.getKey().equals("FinalGPA")) {
-
-                                                            stdUserGPA = courseChild.getValue().toString().trim();
+                                                        for (DataSnapshot courseChild : snapshot.getChildren()) {
 
 
-                                                            GPAlistOfCourses.add(stdUserGPA);
+                                                            if (courseChild.getKey().equals("FinalGPA")) {
+
+                                                                flagfound=1;
+
+                                                                stdUserGPA = courseChild.getValue().toString().trim();
 
 
-                                                            myMultimap.put(StduserID, stdUserGPA);
+                                                                GPAlistOfCourses.add(stdUserGPA);
+
+
+                                                                myMultimap.put(StduserID, stdUserGPA);
 
 
 
+
+
+                                                            }
 
 
                                                         }
-
+                                                        listener3Completed=true;
 
                                                     }
-                                                    listener3Completed=true;
-
-                                                }
 
 
-                                                //Toast.makeText(RankViewerPage.this, GPAlistOfCourses.size() + "", Toast.LENGTH_SHORT).show();
+                                                    //Toast.makeText(RankViewerPage.this, GPAlistOfCourses.size() + "", Toast.LENGTH_SHORT).show();
 
 
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError error) {
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
 
-                                                }
-                                            });
+                                                    }
+                                                });
+
+                                            }
+
 
                                         }
 
@@ -281,7 +291,7 @@ public class RankViewerPage extends AppCompatActivity {
 
                 proViewRankPage.setVisibility(View.VISIBLE);
 
-                //if (listener1Completed && listener2Completed && listener3Completed ) {
+                if (listener1Completed && listener2Completed && listener3Completed ) {
 
 
                 int StudentCount=0;
@@ -329,7 +339,7 @@ public class RankViewerPage extends AppCompatActivity {
 
 
 
-                //}
+                }
 
 
             }
