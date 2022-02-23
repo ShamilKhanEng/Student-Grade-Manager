@@ -27,7 +27,7 @@ public class StudentArea extends AppCompatActivity implements View.OnClickListen
 
 
     private TextView dispMsg;
-    private ImageButton gradCal, adminDetails, stdDetails,Adddetails,RemoveDetailsBtn;
+    private ImageButton gradCal, stdDetails,Adddetails,RemoveDetailsBtn;
     private Button logOutDashBtn,toStudentZoneBtn;
     private String emailFromlog;
     private String emailFromSign;
@@ -46,7 +46,6 @@ public class StudentArea extends AppCompatActivity implements View.OnClickListen
 
         //linking the variables in the java script with the components in the xml script
         dispMsg = findViewById(R.id.TVstudentdash);
-        adminDetails = findViewById(R.id.AdminDetailsBtn);
         stdDetails = findViewById(R.id.StdDashViewBtn);
         Adddetails = findViewById(R.id.AddDetailsBtn);
         gradCal=findViewById(R.id.GradCalBtn);
@@ -54,7 +53,7 @@ public class StudentArea extends AppCompatActivity implements View.OnClickListen
         RemoveDetailsBtn=findViewById(R.id.StdDashBoardDeleteBtn);
 
 
-        adminDetails.setOnClickListener(this);
+
         stdDetails.setOnClickListener(this);
         Adddetails.setOnClickListener(this);
         gradCal.setOnClickListener(this);
@@ -102,54 +101,7 @@ public class StudentArea extends AppCompatActivity implements View.OnClickListen
             Intent toAStd = new Intent(StudentArea.this, GradePage.class);
             startActivity(toAStd);
             finish();
-        } else if (vStdArea.getId() == R.id.AdminDetailsBtn) {
-
-
-            //get the email of the current user and get the userID by splitting the
-            //email by @
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                userEmail = user.getEmail();
-                userID = userEmail.substring(0, userEmail.indexOf("@"));
-            } else {
-                startActivity(new Intent(getApplicationContext(), LoginPage.class));
-                finish();
-
-            }
-
-            DatabaseReference dref= FirebaseDatabase.getInstance().getReference();
-
-            dref.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String status=snapshot.child("Student").child(userID).child("Admin").getValue(String.class);
-
-                    if(status.equals("1")){
-
-
-                        startActivity(new Intent(getApplicationContext(),AdminArea.class));
-
-                    }else{
-
-                        startActivity(new Intent(getApplicationContext(),AdminRegPage.class));
-
-
-                    }
-                    finish();
-
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-
-
-
-
-        } else if (vStdArea.getId() == R.id.StdDashViewBtn) {
+        }  else if (vStdArea.getId() == R.id.StdDashViewBtn) {
             Intent toStdView = new Intent(StudentArea.this,ViewStudentDetail.class );
             startActivity(toStdView);
             finish();

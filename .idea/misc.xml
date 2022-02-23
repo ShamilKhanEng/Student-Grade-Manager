@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/admin_profile_foreground.xml" value="0.1805" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/calculate_image_foreground.xml" value="0.144" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/customrectangle.xml" value="0.144" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/layout2curvededege_type2.xml" value="0.2595" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/layout2curvededge.xml" value="0.1805" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/rounded_corner.xml" value="0.144" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/rounded_layout_type1.xml" value="0.2595" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/std_area_addstddetailimage2_foreground.xml" value="0.2595" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/std_record_add_foreground.xml" value="0.144" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/drawable/student_image_foreground.xml" value="0.144" />
         <entry key="..\:/Java Project/StudentHub/app/src/main/res/font/.xml" value="0.284375" />
         <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_add_course_page.xml" value="0.23854166666666668" />
         <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_add_std_details_page.xml" value="0.23854166666666668" />
@@ -27,8 +37,11 @@
         <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_student_course_remove_page.xml" value="0.2418478260869565" />
         <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_student_remove_page.xml" value="0.2418478260869565" />
         <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/activity_view_student_detail.xml" value="0.20833333333333334" />
-        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/helppopup.xml" value="0.25416666666666665" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/layout/helppopup.xml" value="0.12773722627737227" />
         <entry key="..\:/Java Project/StudentHub/app/src/main/res/menu/main_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/mipmap-anydpi-v26/admin_profile.xml" value="0.201" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/mipmap-anydpi-v26/calculate_image.xml" value="0.144" />
+        <entry key="..\:/Java Project/StudentHub/app/src/main/res/mipmap-anydpi-v26/student_image.xml" value="0.144" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/drawable/Admin_profilePage_foreground.xml" value="0.167" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/drawable/adminUpdate__view_foreground.xml" value="0.1685" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/drawable/rounded_corner.xml" value="0.1" />

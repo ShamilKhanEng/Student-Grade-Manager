@@ -2,14 +2,13 @@ package com.example.studenthub;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class RankViewerPage extends AppCompatActivity {
 
@@ -184,131 +182,26 @@ public class RankViewerPage extends AppCompatActivity {
 
 
 
-        //comparing the obtain details with admin details to find the admin userid
-        FirebaseDatabase.getInstance().getReference().child("Student")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
 
-
-
-
-
-
-
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            uniVar1 = snapshot.child("University").getValue().toString();
-                            facVar1 = snapshot.child("Faculty").getValue().toString();
-                            fieldVar1 = snapshot.child("Field").getValue().toString();
-                            yearVar1 = snapshot.child("Year").getValue().toString();
-                            semVar1 = snapshot.child("Semester").getValue().toString();
-
-
-
-                            if (uniVar1.equals(uniStr) && facVar1.equals(facStr) && fieldVar1.equals(fieldStr) && yearVar1.equals(yearStr) && semVar1.equals(semStr)) {
-
-
-                                GPAlistOfCourses = new ArrayList<String>();
-
-                                String StduserID = snapshot.getKey().toString().trim();
-
-                                DatabaseReference refAdmin = FirebaseDatabase.getInstance().getReference().child("Student").child(StduserID).child("Courses");
-
-                                refAdmin.addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
-                                        for (DataSnapshot dsp : snapshot.getChildren()) {
-                                            String userkey = dsp.getKey();
-
-
-
-                                            if(userkey !=null && !(TextUtils.isEmpty(userkey))){
-                                                DatabaseReference reftoCo = FirebaseDatabase.getInstance().getReference().child("Student").child(StduserID).child("Courses").child(userkey);
-
-
-                                                reftoCo.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                    @Override
-                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                                                        for (DataSnapshot courseChild : snapshot.getChildren()) {
-
-
-                                                            if (courseChild.getKey().equals("FinalGPA")) {
-
-                                                                flagfound=1;
-
-                                                                stdUserGPA = courseChild.getValue().toString().trim();
-
-
-                                                                GPAlistOfCourses.add(stdUserGPA);
-
-
-                                                                myMultimap.put(StduserID, stdUserGPA);
-
-
-
-
-
-
-
-
-                                                            }
-
-
-                                                        }
-                                                        listener3Completed=true;
-                                                        //listener3Completed.setValue(true);
-
-
-                                                    }
-
-
-                                                    //Toast.makeText(RankViewerPage.this, GPAlistOfCourses.size() + "", Toast.LENGTH_SHORT).show();
-
-
-                                                    @Override
-                                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                                    }
-                                                });
-
-                                            }
-
-
-                                        }
-
-                                        listener2Completed=true;
-                                        //listener2Completed.setValue(true);
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-
-                            }
-
-                        }
-                        listener1Completed=true;
-                        //listener1Completed.setValue(true);
-
-
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        throw databaseError.toException();
-                    }
-                });
-
-
-
-
+        readData(FirebaseDatabase.getInstance().getReference().child("Student"), new OnGetDataListener() {
+            @Override
+            public void onSuccess(String response) {
+
+                //got data from database....now you can use the retrieved data
+                //setRank();
+
+            }
+            @Override
+            public void onStart() {
+                //when starting
+                //Log.d("ONSTART", "Started");
+            }
+
+            @Override
+            public void onFailure() {
+                // Log.d("onFailure", "Failed");
+            }
+        });
 
 
 
@@ -322,9 +215,29 @@ public class RankViewerPage extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                ProgressDialog dialog = ProgressDialog.show(RankViewerPage.this, "",
+                        "Loading. Please wait...", true);
+                dialog.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        {
 
 
-                setRank();
+                            //Toast.makeText(RankViewerPage.this, "Not enough players online right now!", Toast.LENGTH_SHORT).show();
+                            setRank();
+                            dialog.dismiss();
+                        }
+                    }
+                }, 2000);// 2000 milliseconds = 2seconds
+
+
+
+
+
+
+
             }
 
 
@@ -343,6 +256,10 @@ public class RankViewerPage extends AppCompatActivity {
                 finish();
 
 
+
+
+
+
             }
         });
 
@@ -353,7 +270,7 @@ public class RankViewerPage extends AppCompatActivity {
 
     public void setRank(){
 
-        if (listener1Completed && listener2Completed && listener3Completed ) {
+       // if (listener1Completed && listener2Completed && listener3Completed ) {
 
 
             int StudentCount=0;
@@ -386,7 +303,7 @@ public class RankViewerPage extends AppCompatActivity {
             // using indexOf() to find index of CurrentUserAgGPA
 
 
-            if(flagCount==0){
+           if(flagCount==0){
                 position = avgGPA.indexOf(CurrentUserAgGPA) + 1;
 
             }
@@ -411,10 +328,147 @@ public class RankViewerPage extends AppCompatActivity {
 
             flagCount=1;
 
-        }
+       // }
+
+
 
 
 
 
     }
+
+    public void readData(DatabaseReference ref, final OnGetDataListener listener) {
+        listener.onStart();
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot1) {
+
+                listener.onSuccess(dataSnapshot1.getValue().toString());
+
+
+
+
+
+                for (DataSnapshot snapshot : dataSnapshot1.getChildren()) {
+                    uniVar1 = snapshot.child("University").getValue().toString();
+                    facVar1 = snapshot.child("Faculty").getValue().toString();
+                    fieldVar1 = snapshot.child("Field").getValue().toString();
+                    yearVar1 = snapshot.child("Year").getValue().toString();
+                    semVar1 = snapshot.child("Semester").getValue().toString();
+
+
+
+                    if (uniVar1.equals(uniStr) && facVar1.equals(facStr) && fieldVar1.equals(fieldStr) && yearVar1.equals(yearStr) && semVar1.equals(semStr)) {
+
+
+                        GPAlistOfCourses = new ArrayList<String>();
+
+                        String StduserID = snapshot.getKey().toString().trim();
+
+                        DatabaseReference refAdmin = FirebaseDatabase.getInstance().getReference().child("Student").child(StduserID).child("Courses");
+
+                        refAdmin.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                               // listener.onSuccess(snapshot);
+
+                                for (DataSnapshot dsp : snapshot.getChildren()) {
+                                    String userkey = dsp.getKey();
+
+
+
+                                    if(userkey !=null && !(TextUtils.isEmpty(userkey))){
+                                        DatabaseReference reftoCo = FirebaseDatabase.getInstance().getReference().child("Student").child(StduserID).child("Courses").child(userkey);
+
+
+                                        reftoCo.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                               // listener.onSuccess(snapshot);
+                                                for (DataSnapshot courseChild : snapshot.getChildren()) {
+
+
+                                                    if (courseChild.getKey().equals("FinalGPA")) {
+
+                                                        flagfound=1;
+
+                                                        stdUserGPA = courseChild.getValue().toString().trim();
+
+
+                                                        GPAlistOfCourses.add(stdUserGPA);
+
+
+                                                        myMultimap.put(StduserID, stdUserGPA);
+
+
+
+                                                    }
+
+
+                                                }
+                                                listener3Completed=true;
+                                                //listener3Completed.setValue(true);
+
+
+                                            }
+
+
+                                            //Toast.makeText(RankViewerPage.this, GPAlistOfCourses.size() + "", Toast.LENGTH_SHORT).show();
+
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+                                    }
+
+
+                                }
+
+                                listener2Completed=true;
+                                //listener2Completed.setValue(true);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                    }
+
+                }
+                listener1Completed=true;
+                //listener1Completed.setValue(true);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+
+        });
+
+    }
+
+
+
+
+
+
+    public interface OnGetDataListener {
+        //this is for callbacks
+        void onSuccess(String response);
+        void onStart();
+        void onFailure();
+    }
 }
+
+
+

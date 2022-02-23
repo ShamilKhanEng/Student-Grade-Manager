@@ -54,19 +54,20 @@
         android:id="@+id/linearLayoutGradeDashBoard"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:layout_marginTop="56dp"
-        android:background="#272935"
+        android:background="@drawable/layout2curvededege_type2"
         android:orientation="vertical"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
             android:id="@+id/HL1"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:orientation="horizontal">
 
             <ImageButton
@@ -90,7 +91,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/HL1">
 
@@ -107,9 +108,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/std_area_viewstddetail2"
                 android:background="#272935"
-                />
+                app:srcCompat="@mipmap/std_area_viewstddetail2" />
 
         </LinearLayout>
 
@@ -122,8 +122,9 @@
         android:padding="10dp"
         android:text="let's explore the wonder of this journey , what you like to do first?"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutGradeDashBoard"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />

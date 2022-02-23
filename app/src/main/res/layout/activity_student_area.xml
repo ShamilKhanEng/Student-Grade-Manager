@@ -53,14 +53,15 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="56dp"
-        android:background="#272935"
+        android:layout_marginEnd="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout2curvededege_type2"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
@@ -71,7 +72,7 @@
 
             <ImageButton
                 android:id="@+id/GradCalBtn"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#272935"
@@ -79,14 +80,13 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageButton
-                android:id="@+id/AdminDetailsBtn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:id="@+id/StdDashBoardDeleteBtn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
                 android:background="#272935"
+                app:srcCompat="@drawable/admin_delete_image6_foreground" />
 
-                app:srcCompat="@mipmap/std_area_adminprofile6"
-                tools:ignore="SpeakableTextPresentCheck" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -97,7 +97,7 @@
 
             <ImageButton
                 android:id="@+id/AddDetailsBtn"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#272935"
@@ -108,18 +108,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/std_area_viewstddetail2"
                 android:background="#272935"
-                />
+                app:srcCompat="@mipmap/std_area_viewstddetail2" />
 
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/StdDashBoardDeleteBtn"
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:background="#272935"
-            app:srcCompat="@drawable/admin_delete_image6_foreground" />
+
 
     </LinearLayout>
 
@@ -130,8 +124,9 @@
         android:padding="10dp"
         android:text="let's explore the wonder of this journey , what you like to do first?"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
