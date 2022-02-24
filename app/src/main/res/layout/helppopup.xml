@@ -7,55 +7,85 @@
 
     >
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/textView2"
+
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this \n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this \n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this \n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this \n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
-Have to add help details here \n
-so rishad and aarah think about on \n what we can add for this\n
+            android:layout_height="200dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/imageforrishad">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Write something here"
+                android:textColor="#131717"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/imageforrishad">
+
+            </ImageView>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:paddingStart="10dp"
+                android:text="shamil\nrishad
+
+
 "
 
 
-            android:textColor="#171616"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="#171616"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </LinearLayout>
+
+
+
 
         <Button
             android:id="@+id/mainMenuBtnClose"
@@ -68,6 +98,8 @@ so rishad and aarah think about on \n what we can add for this\n
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
 
 
     </LinearLayout>
