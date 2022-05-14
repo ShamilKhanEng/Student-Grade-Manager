@@ -137,7 +137,7 @@ public class StudentArea extends AppCompatActivity implements View.OnClickListen
 
     public void createNewContactDialog(){
         dialogbuilder =new AlertDialog.Builder(this);
-        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup,null);
+        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup_student_area,null);
 
 
         mainPopUpClose=(Button) contactPopupView.findViewById(R.id.mainMenuBtnClose);
