@@ -223,7 +223,7 @@ public class SelectorPage extends AppCompatActivity implements View.OnClickListe
 
     public void createNewContactDialog(){
         dialogbuilder =new AlertDialog.Builder(this);
-        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup,null);
+        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup_selector_page,null);
 
 
         mainPopUpClose=(Button) contactPopupView.findViewById(R.id.mainMenuBtnClose);
