@@ -125,7 +125,7 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
 
     public void createNewContactDialog(){
         dialogbuilder =new AlertDialog.Builder(this);
-        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup,null);
+        final View contactPopupView=getLayoutInflater().inflate(R.layout.helppopup_admin_area,null);
 
 
         mainPopUpClose=(Button) contactPopupView.findViewById(R.id.mainMenuBtnClose);
