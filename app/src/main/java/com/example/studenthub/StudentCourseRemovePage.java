@@ -1,9 +1,12 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -31,16 +34,17 @@ public class StudentCourseRemovePage extends AppCompatActivity {
     private Spinner StdCourseRemoveSpCourses,StdCourseRemoveSpPrevCourse;
     private Button BtnBackStdCourseRemovePage,StdCourseRemoveBtn;
     private ArrayList<String> listDelCourse,listDelPrevCourse;
-
     private String resultFromSpinner;
     private ProgressBar progressBarStdDelCourse;
-
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_course_remove_page);
-
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
         //linking the spinner
         StdCourseRemoveSpCourses=findViewById(R.id.StdCourseSpCourse);
         StdCourseRemoveSpPrevCourse=findViewById(R.id.StdCourseSpPrevCourse);

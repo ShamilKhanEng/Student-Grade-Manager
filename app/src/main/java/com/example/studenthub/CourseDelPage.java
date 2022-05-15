@@ -1,9 +1,12 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -31,14 +34,16 @@ public class CourseDelPage extends AppCompatActivity {
     private String result;
     private Button BtnDelBack,BtnDelRemove;
     private Spinner CourseDelspinner;
-
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_del_page);
 
-
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 
         CourseDelspinner=findViewById(R.id.CourseSpinnerView);
 

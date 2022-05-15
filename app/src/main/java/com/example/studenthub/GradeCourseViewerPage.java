@@ -1,9 +1,12 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -46,16 +49,15 @@ public class GradeCourseViewerPage extends AppCompatActivity {
     private String CourseGPAStr="";
     private String CourseGRADEStr="";
     private String resultFromSpinner;
-
-
-
-
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grade_course_viewer_page);
-
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 
         //linking the spinner
         spinnerMarksViewPage=findViewById(R.id.CourseSpinnerGradeView);

@@ -1,10 +1,13 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,27 +23,25 @@ public class AdminArea extends AppCompatActivity implements View.OnClickListener
 
     private ImageButton CourseDel,CourseUpdate,CourseView,CourseAdd;
     private Button logout,toslector;
-
-
     private AlertDialog.Builder dialogbuilder;
     private AlertDialog dialog;
     private Button mainPopUpClose;
-
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_area);
 
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
+
         CourseDel=findViewById(R.id.AdminAreaDeleteBtn);
         CourseUpdate=findViewById(R.id.adminDashUpdateBtn);
         CourseView=findViewById(R.id.adminDashViewbtn);
         toslector=findViewById(R.id.toStdZoneBtnfromadmin);
         CourseAdd=findViewById(R.id.admindashAddBtn);
-
-
-
-
         CourseDel.setOnClickListener(this);
         CourseUpdate.setOnClickListener(this);
         CourseView.setOnClickListener(this);

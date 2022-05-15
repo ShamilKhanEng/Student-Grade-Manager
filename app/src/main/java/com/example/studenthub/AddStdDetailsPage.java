@@ -1,9 +1,12 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -32,15 +35,10 @@ public class AddStdDetailsPage extends AppCompatActivity {
     private Button addDetails,toDashBoardBTn;
     private String userEmail,userID;
     private ProgressBar proBarAddStd;
-
     //this string is to store the message from the receiving page
     private String receivedStr;
-
     private AutoCompleteTextView uni,fac,field;
     private Spinner uniSp,facSp,fieldSp;
-
-
-
     private String uniStr;
     private String facStr;
     private String fieldStr;
@@ -49,23 +47,21 @@ public class AddStdDetailsPage extends AppCompatActivity {
     private String cumGPAStr;
     private String nameStr;
     private String regNumStr;
-
-
     private ArrayList<String> ExistinguniStrlist;
     private ArrayList<String> ExistingfacStrlist;
     private ArrayList<String> ExistingfieldStrlist;
-
-
     private DatabaseReference mdatabaseRef;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_std_details_page);
-
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 
         proBarAddStd=findViewById(R.id.pbStdAddPage);
-
         uni=findViewById(R.id.ETUniversity);
         fac=findViewById(R.id.ETFaculty);
         field=findViewById(R.id.ETField);

@@ -1,9 +1,12 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,8 +34,6 @@ public class ViewStudentDetail extends AppCompatActivity {
     private Button BtnStdViewBack;
     private TextView NameTV, UniversityTV,FacultyTV, FieldTV, YearTV, SemesterTV, LastCumGPATV, AdminStatusTV, EmailTV,RegNumTV;
     private ProgressBar progressBarStdview;
-
-
     private String uniStr;
     private String facStr;
     private String fieldStr;
@@ -42,12 +43,15 @@ public class ViewStudentDetail extends AppCompatActivity {
     private String nameStr;
     private String regNumStr;
     private String AdminStatusStr;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_student_detail);
-
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 
 
         BtnStdViewBack=findViewById(R.id.StdViewBackButton);

@@ -2,9 +2,12 @@ package com.example.studenthub;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -50,23 +53,20 @@ public class CourseViewPage extends AppCompatActivity {
     private String CourseEndMarksStr="";
     private String CourseProjectStr="";
     private String result;
-
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_view_page);
 
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
+
         List<String> CoursesList = new ArrayList<>();
         spinner=findViewById(R.id.CourseSpinnerView);
-
-
-
-
         BtnBack=findViewById(R.id.CourseViewBackButton);
-
-
-
         //VCourseID = findViewById(R.id.ETxtCourseID);
         VCourseCredit = findViewById(R.id.TVCoCreditsValue);
         VCourseName = findViewById(R.id.TVCoViewNameValue);

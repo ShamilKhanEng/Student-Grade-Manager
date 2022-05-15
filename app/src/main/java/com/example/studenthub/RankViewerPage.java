@@ -1,10 +1,13 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -85,12 +88,16 @@ public class RankViewerPage extends AppCompatActivity {
     private int flag1=0;
     private String  stdUsersem,stdUserGPA,userName;
     private int newUser=0,flag=0,StdCheckCount,expectCount,position;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank_viewer_page);
 
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 /*
         listener1Completed.setValue(false); //Initilize with a value
         listener2Completed.setValue(false); //Initilize with a value

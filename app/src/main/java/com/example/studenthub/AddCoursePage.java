@@ -1,8 +1,11 @@
 package com.example.studenthub;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -26,21 +29,20 @@ public class AddCoursePage extends AppCompatActivity {
     private ProgressBar progressBarCAdd;
     private DatabaseReference mdatabaseRef;
     private String userEmail, userID;
-
     private String CourseIDStr, CourseNameStr, CourseCreditStr, AsignmentMarkStr, SemesterStr, MidMarkStr, LabMarkStr, EndMarkStr, ProjectMarkStr;
-
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course_page);
 
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 
         BtnMore = findViewById(R.id.AddMoreBtn);
         BtnFinish=findViewById(R.id.FinishBtn);
-
-
-
         CourseID = findViewById(R.id.ETxtCourseID);
         CourseCredit = findViewById(R.id.ETxtCourseCredit);
         CourseName = findViewById(R.id.ETxtCourseName);

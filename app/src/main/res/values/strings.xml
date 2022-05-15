@@ -1,3 +1,3 @@
 <resources>
-    <string name="app_name">Student Hub</string>
+    <string name="app_name"><font fgcolor="#20243C">Student Hub</font></string>
 </resources>

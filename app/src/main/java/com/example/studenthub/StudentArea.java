@@ -1,10 +1,13 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,16 +36,19 @@ public class StudentArea extends AppCompatActivity implements View.OnClickListen
     private String emailFromSign;
     private String nameFromSel;
     private String userID,userEmail;
-
     private AlertDialog.Builder dialogbuilder;
     private AlertDialog dialog;
     private Button mainPopUpClose;
-
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_area);
+
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 
         //linking the variables in the java script with the components in the xml script
         dispMsg = findViewById(R.id.TVstudentdash);

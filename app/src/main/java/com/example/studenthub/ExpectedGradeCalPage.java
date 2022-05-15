@@ -1,8 +1,11 @@
 package com.example.studenthub;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -36,19 +39,14 @@ public class ExpectedGradeCalPage extends AppCompatActivity {
     private String ExpectFinalGPAStr="";
     private String TotalEndMarksStr="";
     private String receivedStr;
-
     private CheckBox GExpectEndMarksCheck;
     private CheckBox GExpectMinSemGPACheck;
+    ActionBar actionBar;
 
     //populating a hash map for the purpose of iterating through key value pair
     HashMap<String,String> GPAmapMarks;
-
     private Spinner expectSemGPASp,expectFinalGPASp;
-
-
     private TextView MinExpectedEndMarks,MinExpectedSemGPA;
-
-
 
 
     @Override
@@ -56,6 +54,9 @@ public class ExpectedGradeCalPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expected_grade_cal_page);
 
+        //actiobar colour change
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 
         //linking the textview
         MinExpectedEndMarks=findViewById(R.id.TVExpectGradeEndMarksValue);
