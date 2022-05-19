@@ -86,7 +86,15 @@
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/mipmap-anydpi-v26/Admin_profilePage_round.xml" value="0.167" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/mipmap-anydpi-v26/admin_profile.xml" value="0.167" />
         <entry key="..\:/Users/DELL/Desktop/StudentHub/app/src/main/res/mipmap-anydpi-v26/std_record_view.xml" value="0.104" />
+        <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_add_course_page.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_add_std_details_page.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_admin_area.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_admin_reg_page.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_course_del_page.xml" value="0.264" />
+        <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_course_view_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_main.xml" value="0.25025641025641027" />
+        <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_student_course_remove_page.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/Futuremind/OneDrive/Desktop/Student-Grade-Manager/app/src/main/res/layout/activity_view_student_detail.xml" value="0.264" />
       </map>
     </option>
   </component>

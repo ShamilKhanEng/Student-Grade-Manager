@@ -45,7 +45,7 @@ public class CourseDelPage extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 
-        CourseDelspinner=findViewById(R.id.CourseSpinnerView);
+        CourseDelspinner=findViewById(R.id.CourseSpinnerDelete);
 
         BtnDelRemove=findViewById(R.id.CourseDelDeleteButton);
         BtnDelBack=findViewById(R.id.CourseDelBackButton);
