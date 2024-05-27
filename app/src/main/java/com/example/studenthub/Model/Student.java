@@ -11,6 +11,8 @@ public class Student {
     private String name;
     private String regNum;
 
+    private String isAdmin;
+
     private Student(Builder builder) {
         this.userId = builder.userId;
         this.university = builder.university;
@@ -21,9 +23,12 @@ public class Student {
         this.lastCumGPA = builder.lastCumGPA;
         this.name = builder.name;
         this.regNum = builder.regNum;
+        this.isAdmin  = builder.isAdmin;
     }
 
     public static class Builder {
+
+        public String isAdmin;
         private String userId;
         private String university;
         private String faculty;
@@ -36,6 +41,11 @@ public class Student {
 
         public Builder setUserId(String userId) {
             this.userId = userId;
+            return this;
+        }
+
+        public Builder setAdmin(String isAdmin) {
+            this.isAdmin = isAdmin;
             return this;
         }
 
@@ -119,5 +129,14 @@ public class Student {
 
     public String getRegNum() {
         return regNum;
+    }
+
+    public String getAdmin() {
+        return isAdmin;
+    }
+
+    // Setter for isAdmin
+    public void setAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

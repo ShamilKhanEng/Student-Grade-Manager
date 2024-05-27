@@ -59,9 +59,7 @@ public class RankViewerPage extends AppCompatActivity {
     private boolean listener3Completed=false;
     private Double CurrentUserAgGPA=0.0;
 
-   // MutableLiveData<Boolean> listener1Completed = new MutableLiveData<>();
-    //MutableLiveData<Boolean> listener2Completed = new MutableLiveData<>();
-    //MutableLiveData<Boolean> listener3Completed = new MutableLiveData<>();
+
 
 
 
@@ -99,9 +97,7 @@ public class RankViewerPage extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#BDAC78")));
 /*
-        listener1Completed.setValue(false); //Initilize with a value
-        listener2Completed.setValue(false); //Initilize with a value
-        listener3Completed.setValue(false); //Initilize with a value
+
 */
 
         //linking the buttons in xml script with the java class button variable

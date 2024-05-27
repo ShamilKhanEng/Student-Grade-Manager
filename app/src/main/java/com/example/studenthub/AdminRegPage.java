@@ -196,7 +196,7 @@ public class AdminRegPage extends AppCompatActivity  implements View.OnClickList
                                     dref.child("Admin").child(userID).child("Semester").setValue(semStr);
                                     dref.child("Student").child(userID).child("Admin").setValue("1");
 
-
+                                    FirebaseDatabaseManager.getInstance().setAdminAccess("1");
 
                                     Toast.makeText(AdminRegPage.this, "You are added as an Admin Successfully", Toast.LENGTH_LONG).show();
 

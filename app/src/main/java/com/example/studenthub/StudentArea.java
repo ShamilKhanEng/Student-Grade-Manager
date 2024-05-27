@@ -31,11 +31,8 @@ public class StudentArea extends AppCompatActivity implements View.OnClickListen
 
     private TextView dispMsg;
     private ImageButton gradCal, stdDetails,Adddetails,RemoveDetailsBtn;
-    private Button logOutDashBtn,toStudentZoneBtn;
-    private String emailFromlog;
-    private String emailFromSign;
-    private String nameFromSel;
-    private String userID,userEmail;
+    private Button toStudentZoneBtn;
+
     private AlertDialog.Builder dialogbuilder;
     private AlertDialog dialog;
     private Button mainPopUpClose;

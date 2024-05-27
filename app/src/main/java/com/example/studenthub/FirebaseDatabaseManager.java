@@ -1,5 +1,7 @@
 package com.example.studenthub;
 
+import androidx.annotation.NonNull;
+
 import com.example.studenthub.Model.Student;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.AuthResult;
@@ -57,6 +59,11 @@ public class FirebaseDatabaseManager {
     public void signOut() {
         firebaseAuth.signOut();
     }
+
+    public void setAdminAccess(String val){
+        this.currentStudent.setAdmin(val);
+    }
+
 
     // Add student method
     public void addStudentDetails(Student student) {

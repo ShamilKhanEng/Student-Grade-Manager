@@ -55,6 +55,8 @@ public class ViewStudentDetail extends AppCompatActivity {
 
     private Button PDFbutton;
 
+    private FirebaseDatabaseManager firebaseDatabaseManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +90,9 @@ public class ViewStudentDetail extends AppCompatActivity {
 
         //get the email of the current user and get the userID by splitting the
         //email by @
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        // Initialize FirebaseDatabaseManager
+        firebaseDatabaseManager = FirebaseDatabaseManager.getInstance();
+        FirebaseUser user = firebaseDatabaseManager.getCurrentUser();
         if (user != null) {
             userEmail = user.getEmail();
             userID = userEmail.substring(0, userEmail.indexOf("@"));
@@ -255,10 +259,6 @@ public class ViewStudentDetail extends AppCompatActivity {
 
                 canvas.drawLine(85,92,85,300,myPaint);
 
-//                canvas.drawText("Note",10,320,myPaint);
-//                canvas.drawLine(35,325,myPageInfo1.getPageWidth()-10,325,myPaint);
-//                canvas.drawLine(10,345,myPageInfo1.getPageWidth()-10,345,myPaint);
-//                canvas.drawLine(10,365,myPageInfo1.getPageWidth()-10,365,myPaint);
 
                 //canvas.drawBitmap(bmp,40,50,myPaint);
                 myPdfDocument.finishPage(myPage1);
